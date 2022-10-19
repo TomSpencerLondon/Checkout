@@ -46,8 +46,18 @@ public class CartTest {
     Cart cart = new Cart();
 
     assertThat(cart.receipt()).isEqualTo("""
-        Cart is empty.
         Total Price: $0
+        """);
+  }
+
+  @Test
+  void cartWithItemThenReceiptShowsItemAndPrice() {
+    Cart cart = new Cart();
+
+    cart.add("Toothbrush", 1);
+
+    assertThat(cart.receipt()).isEqualTo("""
+        Total Price: $1
         """);
   }
 }
