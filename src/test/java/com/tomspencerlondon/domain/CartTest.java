@@ -33,4 +33,20 @@ public class CartTest {
     assertThat(cart.totalPrice())
         .isEqualTo(2);
   }
+
+  @Test
+  void addTwoDifferentItemsThenTotalPriceIsSum() {
+    Cart cart = new Cart();
+
+    cart.add("Toothbrush", 1);
+    cart.add("Toothpaste", 2);
+
+    assertThat(cart.totalPrice())
+        .isEqualTo(3);
+  }
+
+  @Test
+  void emptyCartReceiptShowsZeroPrice() {
+
+  }
 }
