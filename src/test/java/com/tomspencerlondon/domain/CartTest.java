@@ -22,4 +22,15 @@ public class CartTest {
     assertThat(cart.totalPrice())
         .isEqualTo(1);
   }
+
+  @Test
+  void addTwoToothbrushesThenTotalPriceIsTwoDollars() {
+    Cart cart = new Cart();
+
+    cart.add("Toothbrush", 1);
+    cart.add("Toothbrush", 1);
+
+    assertThat(cart.totalPrice())
+        .isEqualTo(2);
+  }
 }
