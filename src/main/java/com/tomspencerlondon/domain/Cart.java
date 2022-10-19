@@ -11,4 +11,11 @@ public class Cart {
   public void add(String productName, int productPrice) {
     this.productPrice += productPrice;
   }
+
+  public String receipt() {
+    return """
+        Cart is empty.
+        Total Price: $0
+        """;
+  }
 }

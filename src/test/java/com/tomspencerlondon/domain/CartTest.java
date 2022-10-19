@@ -8,10 +8,9 @@ public class CartTest {
 
   @Test
   void emptyCartHasTotalPriceOfZero() {
-     Cart cart = new Cart();
+    Cart cart = new Cart();
 
-     assertThat(cart.totalPrice())
-         .isZero();
+    assertThat(cart.totalPrice()).isZero();
   }
 
   @Test
@@ -19,8 +18,7 @@ public class CartTest {
     Cart cart = new Cart();
     cart.add("Toothbrush", 1);
 
-    assertThat(cart.totalPrice())
-        .isEqualTo(1);
+    assertThat(cart.totalPrice()).isEqualTo(1);
   }
 
   @Test
@@ -30,8 +28,7 @@ public class CartTest {
     cart.add("Toothbrush", 1);
     cart.add("Toothbrush", 1);
 
-    assertThat(cart.totalPrice())
-        .isEqualTo(2);
+    assertThat(cart.totalPrice()).isEqualTo(2);
   }
 
   @Test
@@ -41,12 +38,16 @@ public class CartTest {
     cart.add("Toothbrush", 1);
     cart.add("Toothpaste", 2);
 
-    assertThat(cart.totalPrice())
-        .isEqualTo(3);
+    assertThat(cart.totalPrice()).isEqualTo(3);
   }
 
   @Test
   void emptyCartReceiptShowsZeroPrice() {
+    Cart cart = new Cart();
 
+    assertThat(cart.receipt()).isEqualTo("""
+        Cart is empty.
+        Total Price: $0
+        """);
   }
 }
