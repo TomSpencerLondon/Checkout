@@ -42,15 +42,6 @@ public class CartTest {
   }
 
   @Test
-  void emptyCartReceiptShowsZeroPrice() {
-    Cart cart = new Cart();
-
-    assertThat(cart.receipt()).isEqualTo("""
-        Total Price: $0
-        """);
-  }
-
-  @Test
   void cartWithItemThenReceiptShowsItemAndPrice() {
     Cart cart = new Cart();
 
@@ -73,21 +64,6 @@ public class CartTest {
         Toothpaste $2
 
         Total Price: $2
-        """);
-  }
-
-  @Test
-  void cartWithMultipleItemsThenReceiptShowsAllItemNamesAndPrices() {
-    Cart cart = new Cart();
-
-    cart.add("Toothbrush", 1);
-    cart.add("Toothpaste", 2);
-
-    assertThat(cart.receipt()).isEqualTo("""
-        Toothbrush $1
-        Toothpaste $2
-
-        Total Price: $3
         """);
   }
 }
