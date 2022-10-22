@@ -16,7 +16,7 @@ public class CartTest {
   @Test
   void addToothbrushProductThenCartTotalPriceIsOneDollar() {
     Cart cart = new Cart();
-    cart.add("Toothbrush", 1);
+    cart.add(new Product("Toothbrush", 1));
 
     assertThat(cart.totalPrice()).isEqualTo(1);
   }
@@ -25,8 +25,8 @@ public class CartTest {
   void addTwoToothbrushesThenTotalPriceIsTwoDollars() {
     Cart cart = new Cart();
 
-    cart.add("Toothbrush", 1);
-    cart.add("Toothbrush", 1);
+    cart.add(new Product("Toothbrush", 1));
+    cart.add(new Product("Toothbrush", 1));
 
     assertThat(cart.totalPrice()).isEqualTo(2);
   }
@@ -35,9 +35,18 @@ public class CartTest {
   void addTwoDifferentItemsThenTotalPriceIsSum() {
     Cart cart = new Cart();
 
-    cart.add("Toothbrush", 1);
-    cart.add("Toothpaste", 2);
+    cart.add(new Product("Toothbrush", 1));
+    cart.add(new Product("Toothpaste", 2));
 
     assertThat(cart.totalPrice()).isEqualTo(3);
   }
+
+//  @Test
+//  void addMultipleItemsThenContentsReturnsMultipleItems() {
+//    Cart cart = new Cart();
+//    cart.add("Toothbrush", 1);
+//    cart.add("Toothpaste", 2);
+//
+//    cart.contents();
+//  }
 }
