@@ -40,30 +40,4 @@ public class CartTest {
 
     assertThat(cart.totalPrice()).isEqualTo(3);
   }
-
-  @Test
-  void cartWithItemThenReceiptShowsItemAndPrice() {
-    Cart cart = new Cart();
-
-    cart.add("Toothbrush", 1);
-
-    assertThat(cart.receipt()).isEqualTo("""
-        Toothbrush $1
-
-        Total Price: $1
-        """);
-  }
-
-  @Test
-  void cartWithDifferentItemThenReceiptShowsItemAndPrice() {
-    Cart cart = new Cart();
-
-    cart.add("Toothpaste", 2);
-
-    assertThat(cart.receipt()).isEqualTo("""
-        Toothpaste $2
-
-        Total Price: $2
-        """);
-  }
 }
